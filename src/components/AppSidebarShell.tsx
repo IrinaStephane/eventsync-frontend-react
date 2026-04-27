@@ -99,36 +99,47 @@ export function AppSidebarShell() {
         )}
       >
         {/* Header */}
-        <div
-          className={cn(
-            'flex items-center gap-3 shrink-0 h-[64px] px-4',
-            collapsed && 'justify-center px-2'
-          )}
-        >
-          {!collapsed && (
-            <div className="flex items-center gap-2 flex-1">
-              <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-black font-black text-lg shadow-[0_0_20px_rgba(0,245,255,0.4)]">
-                E
-              </div>
-              <span className="font-bold text-lg tracking-tight text-white">EventSync</span>
-            </div>
-          )}
-          {collapsed && (
-            <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-black font-black text-lg shadow-[0_0_20px_rgba(0,245,255,0.4)]">
-              E
-            </div>
-          )}
-          {!collapsed && (
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-8 w-8 p-0 text-muted-foreground hover:text-white hover:bg-white/5"
-              onClick={toggle}
-            >
-              <PanelLeft className="h-4 w-4" />
-            </Button>
-          )}
-        </div>
+        {/* Header */}
+<div
+  className={cn(
+    'flex items-center gap-3 shrink-0 h-[64px] px-4',
+    collapsed && 'justify-center px-2'
+  )}
+>
+  {!collapsed && (
+    <div className="flex items-center gap-2 flex-1">
+      {/* On ajoute onClick={toggle} et cursor-pointer ici */}
+      <button
+        onClick={toggle}
+        className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-black font-black text-lg shadow-[0_0_20px_rgba(0,245,255,0.4)] hover:opacity-80 transition-opacity"
+      >
+        E
+      </button>
+      <span className="font-bold text-lg tracking-tight text-white">EventSync</span>
+    </div>
+  )}
+
+  {collapsed && (
+    /* Même chose pour la version réduite */
+    <button
+      onClick={toggle}
+      className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-black font-black text-lg shadow-[0_0_20px_rgba(0,245,255,0.4)] hover:opacity-80 transition-opacity"
+    >
+      E
+    </button>
+  )}
+
+  {!collapsed && (
+    <Button
+      variant="ghost"
+      size="sm"
+      className="h-8 w-8 p-0 text-muted-foreground hover:text-white hover:bg-white/5"
+      onClick={toggle}
+    >
+      <PanelLeft className="h-4 w-4" />
+    </Button>
+  )}
+</div>
 
         {/* Navigation */}
         <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-3 py-4 space-y-6">
